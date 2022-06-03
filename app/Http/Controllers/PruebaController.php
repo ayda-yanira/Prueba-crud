@@ -14,7 +14,8 @@ class PruebaController extends Controller
      */
     public function index()
     {
-        //
+        $pruebas = Prueba::orderBy('id', 'DESC')->get();
+    return view('prueba.index')->with('pruebas', $pruebas);
     }
 
     /**
@@ -24,7 +25,7 @@ class PruebaController extends Controller
      */
     public function create()
     {
-        //
+        return view('prueba.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class PruebaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pruebas = new Prueba();
+
+        
+        $pruebas->nombre = $request->get('nombre');
+        $pruebas->apellido = $request->get('apellido');
+        $pruebas->cargo = $request->get('cargo');
+        $pruebas->direccion = $request->get('direccion');
+        $pruebas->telefono = $request->get('telefono');
+        $pruebas->correo = $request->get('correo');
+        $pruebas->sueldo = $request->get('sueldo');
+        $pruebas->save();
+        return redirect('/');
     }
 
     /**
