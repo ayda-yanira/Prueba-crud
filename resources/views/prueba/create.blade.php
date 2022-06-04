@@ -10,7 +10,7 @@
 
 <div class="card " style="border:rgb(10, 41, 88)">
   <div class="card-body " style="background-color:rgb(252, 251, 255)">
-<form action="/" method="POST"style="border:#0f0c64">
+<form action="/prueba" method="POST"style="border:#0f0c64">
     @csrf
     <div class="container">
 
@@ -20,22 +20,23 @@
     <label for="" class="form-label"style="color:#0f0c64"> <b> Nombre </b></label>
     <input id="nombre" name="nombre"placeholder="Escribe tu Nombre y Apellido"type="text" class="form-control" tabindex="2" required>
   </div>
+  <div class="col-lg-6" >
+        <label for="" class="form-label" style="color:#0f0c64"><b>Apellidos</b></label>
+        <input id="apellido" name="apellido" type="text" class="form-control" tabindex="2"required>
+      </div>
   </div>
   
 <br>
 
   <div class="row">
-      <div class="col-lg-4" >
-        <label for="" class="form-label" style="color:#0f0c64"><b>Apellidos</b></label>
-        <input id="apellido" name="apellido" type="date" class="form-control" tabindex="2"required>
-      </div>
+      
 
-     <div class="col-lg-4">
+     <div class="col-lg-6">
       <label for="" class="form-label" style="color:#0f0c64"><b> Telefono</b></label>
       <input id="telefono" name="telefono"maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="text" class="form-control" tabindex="2"required>
      </div>
   
-  <div class="col-lg-4">
+  <div class="col-lg-6">
     <label for="" class="form-label" style="color:#0f0c64"><b>Correo </b></label>
      <input id="correo" name="correo" type="email" class="form-control" tabindex="2"required>
   </div>
@@ -70,7 +71,7 @@
   
   <br>
   <br>
-  <a href="/"  tabindex="5" class="btn btn-orange"style=" background: linear-gradient(90deg, #ec5f5d 0%, #f0854a 100%)">Cancelar</a>
+  <a href="/prueba"  tabindex="5" class="btn btn-orange"style=" background: linear-gradient(90deg, #ec5f5d 0%, #f0854a 100%)">Cancelar</a>
   <button type="submit"  tabindex="4" class="btn btn-orange"style=" background: linear-gradient(90deg, #ec5f5d 0%, #f0854a 100%)">Guardar</button>
 </form>
 </div></div>

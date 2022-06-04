@@ -47,7 +47,7 @@ class PruebaController extends Controller
         $pruebas->correo = $request->get('correo');
         $pruebas->sueldo = $request->get('sueldo');
         $pruebas->save();
-        return redirect('/');
+        return redirect('/prueba');
     }
 
     /**
@@ -67,9 +67,10 @@ class PruebaController extends Controller
      * @param  \App\Models\prueba  $prueba
      * @return \Illuminate\Http\Response
      */
-    public function edit(prueba $prueba)
+    public function edit($id)
     {
-        //
+        $prueba= Prueba::find($id);
+        return view('prueba.edit')->with('prueba',$prueba);
     }
 
     /**
@@ -79,9 +80,24 @@ class PruebaController extends Controller
      * @param  \App\Models\prueba  $prueba
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, prueba $prueba)
+    public function update(Request $request, prueba $id)
     {
-        //
+        $prueba = Prueba::find($id);
+
+       
+        $prueba->nombre = $request->get('nombre');
+        $prueba->apellido = $request->get('apellido');
+        $prueba->cargo = $request->get('cargo');
+        $prueba->direccion = $request->get('direccion');
+        $prueba->telefono = $request->get('telefono');
+        $prueba->correo = $request->get('correo');
+        
+        $prueba->sueldo = $request->get('sueldo');
+        
+        
+        $prueba->save();
+
+        return redirect('/prueba');
     }
 
     /**
@@ -90,8 +106,11 @@ class PruebaController extends Controller
      * @param  \App\Models\prueba  $prueba
      * @return \Illuminate\Http\Response
      */
-    public function destroy(prueba $prueba)
+    public function destroy($id)
     {
-        //
+        $prueba = Prueba::find($id);        
+        $prueba->delete();
+
+        return redirect('/prueba')->with('eliminar', 'ok');
     }
 }
